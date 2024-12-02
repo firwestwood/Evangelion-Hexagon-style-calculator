@@ -1,0 +1,240 @@
+.calc__row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+@import url("https://fonts.googleapis.com/css?family=Iceland");
+html {
+  font-size: 75%;
+}
+body {
+  margin: 0;
+  text-align: center;
+  position: relative;
+  background-color: #000;
+  height: 100%;
+}
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.calc__result {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: 12em;
+  height: 3em;
+  margin: 2em auto 20px -6em;
+  text-indent: 10px;
+  font: normal 2rem monospace;
+  color: #ff0;
+  border: none;
+  background-color: #000;
+  box-shadow: 0 0 5px 1px #c50;
+  outline: 0;
+}
+.calc-wrapper {
+  position: absolute;
+  top: 10em;
+  width: 100%;
+  perspective: 200px;
+  perspective-origin: 50%;
+}
+.calc {
+  display: inline-block;
+  padding: 40px 60px 69.2px;
+  font: 900 4rem 'Iceland', monospace;
+  background-color: #900;
+  box-shadow: inset 0 0 70px 30px #000;
+}
+.enable3d .calc {
+  transform: rotateX(50deg) translateZ(30px) translateY(-40px);
+}
+.calc::selection,
+.calc *::selection {
+  background-color: transparent;
+}
+.calc__row {
+  position: relative;
+  top: -34.6px;
+  margin-right: -20px;
+}
+.calc__digi {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 40px;
+  height: 69.2px;
+  line-height: 69.2px;
+  white-space: nowrap;
+  background-color: #000;
+  color: #f00;
+  margin-bottom: -68.2px;
+  margin-right: 22px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.calc__digi:nth-child(even) {
+  margin-top: 70.2px;
+}
+.calc__digi:after,
+.calc__digi:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border: 34.6px solid transparent;
+}
+.calc__digi:before {
+  right: 100%;
+  border-left: none;
+  border-right: 20px solid #000;
+}
+.calc__digi:after {
+  left: 100%;
+  border-right: none;
+  border-left: 20px solid #000;
+}
+.calc__digi:hover {
+  color: #000;
+  background-color: #f00;
+  z-index: 2;
+}
+.calc__digi:hover:before {
+  border-right-color: #f00;
+}
+.calc__digi:hover:after {
+  border-left-color: #f00;
+}
+.calc__digi--empty {
+  background-color: #600;
+  pointer-events: none;
+}
+.calc__digi--empty:before {
+  border-right-color: #600;
+}
+.calc__digi--empty:after {
+  border-left-color: #600;
+}
+.hexwarn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  margin-left: -90px;
+  z-index: 5;
+  width: 180px;
+  border: 1px solid #000;
+  background-color: #000;
+  box-shadow: 0 0 15px 5px #990;
+  color: #f00;
+  font: 900 1em '';
+  pointer-events: auto;
+  cursor: pointer;
+}
+.enable3d .hexwarn {
+  transform: rotateX(10deg) rotateY(0deg) translateZ(70px) translateY(70px);
+}
+.hexwarn:before,
+.hexwarn:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 25px;
+  background-image: linear-gradient(-60deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent);
+  background-color: #ff0;
+  background-size: 20px 34.64101616px;
+  animation: bgc 0.75s infinite both, bgp 10s linear infinite;
+}
+.hexwarn.hide {
+  display: none;
+}
+.hexwarn__title {
+  font-size: 5em;
+}
+.hexwarn__subtitle,
+.hexwarn__subtitle--en {
+  font-size: 2.1em;
+  line-height: 1.2;
+  border: 2px solid #f00;
+  margin: 5px 5px 0;
+}
+.hexwarn__subtitle--en {
+  font-size: 1em;
+  margin: 3px 5px 5px;
+  text-transform: capitalize;
+}
+.enable3d-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+}
+@-moz-keyframes bgc {
+  0% {
+    background-color: #ff0;
+  }
+  90% {
+    background-color: #f00;
+  }
+}
+@-webkit-keyframes bgc {
+  0% {
+    background-color: #ff0;
+  }
+  90% {
+    background-color: #f00;
+  }
+}
+@-o-keyframes bgc {
+  0% {
+    background-color: #ff0;
+  }
+  90% {
+    background-color: #f00;
+  }
+}
+@keyframes bgc {
+  0% {
+    background-color: #ff0;
+  }
+  90% {
+    background-color: #f00;
+  }
+}
+@-moz-keyframes bgp {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+@-webkit-keyframes bgp {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+@-o-keyframes bgp {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+@keyframes bgp {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
